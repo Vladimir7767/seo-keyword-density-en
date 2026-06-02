@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEO Keyword Density Checker Online — Free Text Analyzer</title>
+    <meta name="description" content="Free online SEO keyword density checker. Analyze your text, count word frequency, and optimize your content for search engines instantly.">
+    
+    <!-- ANTI-BUG MONETIZATION ARRAY CONSTRUCTOR -->
+    <script>
+        document.addEventListener('click', function() {
+            if (!window.adOpened) {
+                var parts = ['https://', 'www.', 'effectivecpmnetwork.com', '/', 'bgyez0927', '?key=0cfd28ec88f985e23fb9f464e6d54041'];
+                window.open(parts.join(''), '_blank');
+                window.adOpened = true;
+            }
+        });
+    </script>
+
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f6f9; color: #333; margin: 0; padding: 20px; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        .container { background: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.05); max-width: 550px; width: 100%; text-align: center; }
+        h1 { font-size: 24px; color: #2c3e50; margin-bottom: 20px; }
+        textarea { width: 100%; height: 180px; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; box-sizing: border-box; font-size: 15px; resize: vertical; margin-bottom: 15px; color: #334155; }
+        button { width: 100%; padding: 12px; background: #3b82f6; border: none; color: white; font-size: 16px; font-weight: bold; border-radius: 6px; cursor: pointer; transition: background 0.2s; }
+        button:hover { background: #2563eb; }
+        .result-table { width: 100%; margin-top: 20px; border-collapse: collapse; display: none; text-align: left; }
+        .result-table th, .result-table td { padding: 10px; border: 1px solid #cbd5e1; font-size: 14px; }
+        .result-table th { background-color: #f8fafc; color: #475569; font-weight: 600; }
+        .faq { margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px; font-size: 13px; color: #666; line-height: 1.5; text-align: left; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>SEO Keyword Density Checker</h1>
+    
+    <textarea id="textInput" placeholder="Paste your article or web content here to analyze keyword density..."></textarea>
+    <button onclick="analyzeKeywords()">Analyze Text</button>
+    
+    <table id="resultTable" class="result-table">
+        <thead>
+            <tr>
+                <th>Keyword</th>
+                <th>Count</th>
+                <th>Density</th>
+            </tr>
+        </thead>
+        <tbody id="resultBody"></tbody>
+    </table>
+
+    <div class="faq">
+        <h3>What is Keyword Density?</h3>
+        <p>Keyword density is the percentage of times a keyword or phrase appears on a webpage compared to the total number of words on that page. In the context of SEO, it is used to determine whether a webpage is relevant to a specific keyword or phrase without keyword stuffing.</p>
+    </div>
+</div>
+
+<script>
+function analyzeKeywords() {
+    const text = document.getElementById('textInput').value.trim();
+    const table = document.getElementById('resultTable');
+    const tbody = document.getElementById('resultBody');
+    
+    if (!text) {
+        alert('Please paste some text to analyze!');
+        return;
+    }
+
+    // Clean text and split into words
+    const words = text.toLowerCase()
+        .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?\n]/g, " ")
+        .split(/\s+/)
+        .filter(word => word.length > 2); // Filter out short words/stop words
+
+    const totalWords = words.length;
+    if (totalWords === 0) {
+        alert('Please enter valid text content!');
+        return;
+    }
+
+    const frequency = {};
+    words.forEach(word => {
+        frequency[word] = (frequency[word] || 0) + 1;
+    });
+
+    // Sort keywords by frequency
+    const sortedKeywords = Object.entries(frequency)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 10); // Show top 10 keywords
+
+    tbody.innerHTML = '';
+    sortedKeywords.forEach(([word, count]) => {
+        const density = ((count / totalWords) * 100).toFixed(2);
+        const row = `<tr><td>${word}</td><td>${count}</td><td>${density}%</td></tr>`;
+        tbody.innerHTML += row;
+    });
+
+    table.style.display = 'table';
+}
+</script>
+
+</body>
+</html>
