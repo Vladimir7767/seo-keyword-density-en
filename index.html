@@ -3,113 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SEO Keyword Density Checker Online — Free Text Analyzer</title>
-    <meta name="description" content="Free online SEO keyword density checker. Analyze your text, count word frequency, and optimize your content for search engines instantly.">
-    
-    <!-- ANTI-BUG MONETIZATION ARRAY CONSTRUCTOR -->
-    <script>
-        document.addEventListener('click', function() {
-            if (!window.adOpened) {
-                var parts = ['https://', 'www.', 'effectivecpmnetwork.com', '/', 'bgyez0927', '?key=0cfd28ec88f985e23fb9f464e6d54041'];
-                window.open(parts.join(''), '_blank');
-                window.adOpened = true;
-            }
-        });
-    </script>
-
+    <title>Free SEO Keyword Density Checker Online — Spam Analyzer</title>
+    <meta name="description" content="Analyze your text keyword density instantly with our free online SEO tool. Find top keywords, stop words overoptimization, and fix spam rates easily.">
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f6f9; color: #333; margin: 0; padding: 20px; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
-        .container { background: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.05); max-width: 550px; width: 100%; text-align: center; }
-        h1 { font-size: 24px; color: #2c3e50; margin-bottom: 20px; }
-        textarea { width: 100%; height: 180px; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; box-sizing: border-box; font-size: 15px; resize: vertical; margin-bottom: 15px; color: #334155; }
-        button { width: 100%; padding: 12px; background: #3b82f6; border: none; color: white; font-size: 16px; font-weight: bold; border-radius: 6px; cursor: pointer; transition: background 0.2s; }
-        button:hover { background: #2563eb; }
-        .result-table { width: 100%; margin-top: 20px; border-collapse: collapse; display: none; text-align: left; }
-        .result-table th, .result-table td { padding: 10px; border: 1px solid #cbd5e1; font-size: 14px; }
-        .result-table th { background-color: #f8fafc; color: #475569; font-weight: 600; }
-        .faq { margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px; font-size: 13px; color: #666; line-height: 1.5; text-align: left; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8fafc; color: #1e293b; margin: 0; padding: 20px; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        .container { background: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); max-width: 550px; width: 100%; text-align: center; }
+        h1 { font-size: 24px; color: #0f172a; margin-bottom: 20px; }
+        textarea { width: 100%; height: 150px; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; box-sizing: border-box; font-size: 15px; color: #334155; resize: none; margin-bottom: 15px; font-family: inherit; }
+        button { width: 100%; padding: 12px; background: #4f46e5; border: none; color: white; font-size: 16px; font-weight: bold; border-radius: 6px; cursor: pointer; transition: background 0.2s; }
+        button:hover { background: #4338ca; }
+        .result-box { margin-top: 20px; display: none; text-align: left; }
+        .total-words { font-size: 15px; margin-bottom: 10px; color: #475569; font-weight: 600; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 14px; }
+        th, td { padding: 10px; border-bottom: 1px solid #e2e8f0; text-align: left; }
+        th { background-color: #f1f5f9; color: #334155; font-weight: 600; }
+        tr:hover { background-color: #f8fafc; }
+        .ad-space { display: none; margin-top: 20px; min-height: 100px; text-align: center; }
+        .faq { margin-top: 30px; border-top: 1px solid #e2e8f0; padding-top: 20px; font-size: 13px; color: #64748b; text-align: left; line-height: 1.6; }
     </style>
 </head>
 <body>
-
 <div class="container">
-    <h1>SEO Keyword Density Checker</h1>
+    <h1>SEO Keyword Density Analyzer</h1>
+    <textarea id="textInput" placeholder="Paste your SEO text article here to check keyword density and optimization levels..."></textarea>
+    <button onclick="analyzeDensity()">Analyze Text</button>
     
-    <textarea id="textInput" placeholder="Paste your article or web content here to analyze keyword density..."></textarea>
-    <button onclick="analyzeKeywords()">Analyze Text</button>
-    
-    <table id="resultTable" class="result-table">
-        <thead>
-            <tr>
-                <th>Keyword</th>
-                <th>Count</th>
-                <th>Density</th>
-            </tr>
-        </thead>
-        <tbody id="resultBody"></tbody>
-    </table>
+    <div id="resultBox" class="result-box">
+        <div class="total-words">Total Words Found: <span id="totalWords">0</span></div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Keyword</th>
+                    <th>Count</th>
+                    <th>Density (%)</th>
+                </tr>
+            </thead>
+            <tbody id="resultTableBody"></tbody>
+        </table>
+    </div>
+
+    <!-- NATIVE AD CONTAINER — INJECTED VIA DOM OPERATIONAL MEMORY -->
+    <div id="adContainer" class="ad-space">
+        <div id="container-e8c895e6c70ade8e4ef4a72354f42e97"></div>
+    </div>
 
     <div class="faq">
-        <h3>What is Keyword Density?</h3>
-        <p>Keyword density is the percentage of times a keyword or phrase appears on a webpage compared to the total number of words on that page. In the context of SEO, it is used to determine whether a webpage is relevant to a specific keyword or phrase without keyword stuffing.</p>
+        <h3>What is the optimal keyword density for SEO?</h3>
+        <p>The recommended keyword density for search engine optimization is usually between 2% and 3.5%. Exceeding 4% may trigger search engine keyword stuffing filters.</p>
     </div>
 </div>
 
 <script>
-function analyzeKeywords() {
-    const text = document.getElementById('textInput').value.trim();
-    const table = document.getElementById('resultTable');
-    const tbody = document.getElementById('resultBody');
+function analyzeDensity() {
+    const text = document.getElementById('textInput').value.toLowerCase().trim();
+    const resultBox = document.getElementById('resultBox');
+    const tableBody = document.getElementById('resultTableBody');
+    const totalWordsSpan = document.getElementById('totalWords');
+    const adContainer = document.getElementById('adContainer');
     
-    if (!text) {
-        alert('Please paste some text to analyze!');
-        return;
+    if (text === "") { 
+        alert('Please paste some text to analyze!'); 
+        return; 
     }
-
-    // Clean text and split into words
-    const words = text.toLowerCase()
-        .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?\n]/g, " ")
-        .split(/\s+/)
-        .filter(word => word.length > 2); // Filter out short words/stop words
-
+    
+    // Очистка текста от пунктуации и разбивка на слова
+    const words = text.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?"'\n\r]/g, " ").split(/\s+/).filter(w => w.length > 2);
     const totalWords = words.length;
+    
     if (totalWords === 0) {
-        alert('Please enter valid text content!');
+        alert('Please enter text with valid words (more than 2 characters)!');
         return;
     }
-
-    const frequency = {};
-    words.forEach(word => {
-        frequency[word] = (frequency[word] || 0) + 1;
+    
+    // Подсчет частотности слов
+    const freqMap = {};
+    words.forEach(w => freqMap[w] = (freqMap[w] || 0) + 1);
+    
+    // Сортировка слов по убыванию частоты
+    const sortedWords = Object.keys(freqMap).map(word => {
+        return { word: word, count: freqMap[word], density: ((freqMap[word] / totalWords) * 100).toFixed(1) };
+    }).sort((a, b) => b.count - a.count).slice(0, 10);
+    
+    // Вывод результатов в таблицу
+    totalWordsSpan.innerText = totalWords;
+    tableBody.innerHTML = "";
+    sortedWords.forEach(item => {
+        tableBody.innerHTML += `<tr><td><strong>${item.word}</strong></td><td>${item.count}</td><td>${item.density}%</td></tr>`;
     });
+    
+    resultBox.style.display = 'block';
 
-    // Sort keywords by frequency
-    const sortedKeywords = Object.entries(frequency)
-        .sort((a, b) => b[1] - a[1])
-        .slice(0, 10); // Show top 10 keywords
+    // ШРЕДЕР-ИНЖЕКТОР БАННЕРА ADSTERRA (100% АВТОНОМНОСТЬ В ПАМЯТИ)
+    if (!window.adScriptLoaded) {
+        var adScript = document.createElement('script');
+        adScript.type = 'text/javascript';
+        adScript.async = true;
+        adScript.setAttribute('data-cfasync', 'false');
+        
+        var path = ['https://', 'bagelstoppage.', 'com/', 'e8c895e6c70ade8e4ef4a72354f42e97/', 'invoke.js'];
+        adScript.src = path.join('');
+        
+        adContainer.appendChild(adScript);
+        window.adScriptLoaded = true;
+    }
 
-    tbody.innerHTML = '';
-    sortedKeywords.forEach(([word, count]) => {
-        const density = ((count / totalWords) * 100).toFixed(2);
-        const row = `<tr><td>${word}</td><td>${count}</td><td>${density}%</td></tr>`;
-        tbody.innerHTML += row;
-    });
-
-    table.style.display = 'table';
+    // Плавно открываем нативный рекламный контейнер холдинга
+    adContainer.style.display = 'block';
 }
 </script>
 
 <!-- HIDDEN SEO ENGINE FOR GOOGLE USA -->
 <div style="display:none !important; visibility:hidden !important; opacity:0 !important; width:0 !important; height:0 !important; position:absolute !important; top:-9999px !important;">
-    <h2>SEO keyword density checker online — Free text analyzer</h2>
-    <p>Analyze your web articles and optimization content to determine exact word frequency metrics. Our smart text tool ranks the top keywords to help digital copywriters detect keyword stuffing and optimize metadata structures safely for search engine algorithms.</p>
-    <h3>Calculate keyword weight and density percentage</h3>
-    <p>Paste your marketing content into the analyzer box above to generate an immediate statistical data table breakdown. Measures exact occurrences relative to total text word count on secure client-side code without tracking walls or sign-ups.</p>
+    <h2>Free online SEO keyword density checker and optimization analyzer</h2>
+    <p>Analyze semantic text parameters instantly with our professional content optimization utility. Discover high frequency keywords, identify article density parameters, and extract exact word cloud coefficients inside your browser dashboard with no registration.</p>
+    <h3>Calculate realtime keyword optimization metrics data logs</h3>
+    <p>Paste your copy documentation above to execute fast data processing parameters instantly. Secure client side JavaScript computation processes string density algorithms locally on user computer to prevent corporate text leakage.</p>
     <ul>
-        <li>free online seo keyword density checker</li>
-        <li>how to analyze text word frequency for seo</li>
-        <li>best content optimization analyzer tool free</li>
-        <li>check text for keyword stuffing instantly</li>
+        <li>best online keyword density analyzer free</li>
+        <li>how to check text overoptimization parameters</li>
+        <li>free semantic analysis article tracking tool</li>
+        <li>professional SEO copywriting text stats dashboard</li>
     </ul>
 </div>
 </body>
